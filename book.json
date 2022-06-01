@@ -2,7 +2,6 @@
   "title": "bsa测序分析结题报告",
   "plugins": [
     "mermaid-gb3",
-    "popup",
     "expandable-chapters",
     "tbfed-pagefooter",
     "insert-logo",
