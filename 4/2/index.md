@@ -7,17 +7,7 @@
 
 | 类型 | Number| Precent(%)|
 | :---: | :---: |:---: |
-| DOWNSTEAM | {{0-0}} |{{0-1}}|
-| EXON | {{1-0}} |{{1-1}}|
-| INTERGENIC | {{2-0}} |{{2-1}}|
-| INTRON | {{3-0}} |{{3-1}}|
-| TRANSCRIPT | {{4-0}} |{{4-1}}|
-| SPLICE_SITE_ACCEPTOR | {{5-0}} |{{5-1}}|
-| SPLICE_SITE_DONOR | {{6-0}} |{{6-1}}|
-| SPLICE_SITE_REGION | {{7-0}} |{{7-1}}|
-| UPSTAREAM | {{8-0}} |{{8-1}}|
-| UTR_3 | {{9-0}} |{{9-1}}|
-| UTR_5 | {{10-0}} |{{10-1}}|
+{{table}}
 
 - DOWNSTEAM: 转录终止位点下游 1 kb 的区域
 - EXON: 外显子区域；

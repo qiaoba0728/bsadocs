@@ -29,6 +29,12 @@ function get_snp_note() {
 function get_indel_note() {
     return fs.readFileSync("/data/output/report_result/note/bsa_indel_result.txt")
 }
+function get_blast() {
+    return fs.readFileSync("/data/output/report_result/blast.txt")
+}
+function get_coverage() {
+    return fs.readFileSync("/data/output/report_result/compare.txt")
+}
 function render_table() {
     let content = fs.readFileSync("/data/bsa.json")
     let BsaData = JSON.parse(content)
@@ -169,10 +175,38 @@ function render_table() {
 
 
     // 渲染 gene serial
+    // try {
+    //     let file = outputPrefix + "/3/3/index.md"
+    //     let data = fs.readFileSync(file, 'utf8')
+    //     let table = TableMarkdown(BsaData.gene.serial)
+    //     data = data.replace("{{table}}", table)
+    //     fs.writeFileSync(file, data)
+    // } catch (err) {
+    //     console.error(err)
+    // }
+
     try {
         let file = outputPrefix + "/3/3/index.md"
         let data = fs.readFileSync(file, 'utf8')
-        let table = TableMarkdown(BsaData.gene.serial)
+
+        let table = get_blast()
+        console.log("after table:",table)
+        //let table = TableMarkdown(BsaData.clean.filter)
+        data = data.replace("{{table}}", table)
+        fs.writeFileSync(file, data)
+    } catch (err) {
+        console.error(err)
+    }
+
+
+    try {
+        let file = outputPrefix + "/3/4/index.md"
+        let data = fs.readFileSync(file, 'utf8')
+        // let table = TableMarkdown(BsaData.gene.depth)
+
+        let table = get_coverage()
+        console.log("after table:",table)
+        //let table = TableMarkdown(BsaData.clean.filter)
         data = data.replace("{{table}}", table)
         fs.writeFileSync(file, data)
     } catch (err) {
@@ -181,15 +215,15 @@ function render_table() {
 
     // 渲染 gene depth
     // TODO 需要修改自动识别文件
-    try {
-        let file = outputPrefix + "/3/4/index.md"
-        let data = fs.readFileSync(file, 'utf8')
-        let table = TableMarkdown(BsaData.gene.depth)
-        data = data.replace("{{table}}", table)
-        fs.writeFileSync(file, data)
-    } catch (err) {
-        console.error(err)
-    }
+    // try {
+    //     let file = outputPrefix + "/3/4/index.md"
+    //     let data = fs.readFileSync(file, 'utf8')
+    //     let table = TableMarkdown(BsaData.gene.depth)
+    //     data = data.replace("{{table}}", table)
+    //     fs.writeFileSync(file, data)
+    // } catch (err) {
+    //     console.error(err)
+    // }
 
     // 渲染 snp node
     // try {
